@@ -1,0 +1,60 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "price": 1010,
+      "title": "product 1",
+      "description": "product----1"
+    },
+    {
+      "id": 1,
+      "price": 2100,
+      "title": "product 2",
+      "description": "product----2"
+    },
+    {
+      "id": 1,
+      "price": 3000,
+      "title": "product 3",
+      "description": "product----3"
+    }
+  ],
+  "blogs":[
+    {
+      "id":1,
+      "title": "react hooks",
+      "category": "react.js",
+      "description": "description 1"
+    },
+    {
+      "id":2,
+      "title": "redux in react.js",
+      "category": "react.js",
+      "description": "description 2"
+    },
+    {
+      "id":3,
+      "title": "what is BootstrapCss?",
+      "category": "front-end",
+      "description": "description 3"
+    },
+    {
+      "id":4,
+      "title": "Next.js",
+      "category": "front-end",
+      "description": "description 4"
+    },
+    {
+      "id":5,
+      "title": "different types of database",
+      "category": "back-end",
+      "description": "description 5"
+    },
+    {
+      "id":6,
+      "title": "what is node.js?",
+      "category": "node.js",
+      "description": "description 6"
+    }
+  ]
+}
