@@ -26,6 +26,18 @@ const TodoForm = ({ addTodoHandler }) => {
         setFormData({ ...formData, [evt.target.name]: evt.target.value })
     }
 
+    const submitHandler = evt => {
+        evt.preventDefault()
+
+        addTodoHandler(formData)
+        setIsShow(false)
+        
+        setFormData({
+            title: '',
+            description: ''
+        })
+    }
+
     return (
         <Box>
             {
@@ -45,10 +57,7 @@ const TodoForm = ({ addTodoHandler }) => {
                         Add New Todo?
                     </Button> :
                     <form
-                        onSubmit={e => {
-                            setIsShow(false)
-                            addTodoHandler(e, formData)
-                        }}
+                        onSubmit={evt => submitHandler(evt)}
                         className={classes.formContainer}
                     >
                         <TextField

@@ -18,9 +18,7 @@ export default function Home({ data }) {
       .catch(err => console.log(err))
   }
 
-  const addTodoHandler = (evt, formData) => {
-    evt.preventDefault()
-
+  const addTodoHandler = ( formData) => {
     axios.post('/api/todos/', { formData })
       .then(({ data }) => setTodos(data.todos))
       .catch(err => console.log(err))
