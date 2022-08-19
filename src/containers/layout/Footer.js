@@ -9,9 +9,9 @@ const Footer = () => {
             position='fixed'
             bottom="0"
             right="0"
-            bgcolor='#cfcfcf'
+            bgcolor='#f0f0f0'
         >
-            <Typography m>site footer</Typography>
+            <Typography m>All Rights Reserved</Typography>
         </Box>
     );
 };

@@ -2,24 +2,40 @@ import { Box, Button, Divider, Grid, Typography } from '@mui/material';
 import React, { Fragment } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import DoneIcon from '@mui/icons-material/Done';
-import BorderColorIcon from '@mui/icons-material/BorderColor';
+import ModeIcon from '@mui/icons-material/Mode';
 import Link from 'next/link';
-import axios from 'axios';
 
 const TodosList = ({ todos, deleteHandler, completeHandler }) => {
 
     return (
         todos.length < 1 ?
             <Typography mt={6} variant="h4">Todos have not been added yet!!</Typography> :
-            <Grid container boxShadow="rgba(0,0,0,.1) 0 4px 12px" mt={5} p={3} spacing={2}>
+            <Grid
+                container
+                p={2}
+                borderRadius={3}
+                bgcolor="#fff"
+            >
                 {
-                    todos.map((todo, index) =>
-                        <Fragment key={todo.id}>
-                            <Grid item xs={12} display="flex" justifyContent='space-between' alignItems="center">
+                    todos.map((todo) =>
+                        <Fragment key={todo._id}>
+                            <Grid
+                                item
+                                xs={12}
+                                display="flex"
+                                justifyContent='space-between'
+                                alignItems="center"
+                                border="1px solid #fddfff"
+                                borderRadius={3}
+                                py={1}
+                                px={2}
+                                my
+                            >
                                 <Link href={`/todos/${todo._id}`}>
                                     <a>
                                         <Typography
-                                            variant='h5'
+                                            variant='p'
+                                            component="h3"
                                             color='#333'
                                             sx={todo.isCompleted ? { textDecoration: "line-through" } : {}}
                                         >
@@ -31,19 +47,25 @@ const TodosList = ({ todos, deleteHandler, completeHandler }) => {
                                     <Button sx={{ minWidth: "unset" }} onClick={() => completeHandler(todo._id)}>
                                         {
                                             todo.isCompleted ?
-                                                <DoneIcon color='success' cursor="pointer" /> :
+                                                <DoneIcon
+                                                    color='success'
+                                                    cursor="pointer"
+                                                /> :
                                                 <Typography
                                                     border='2px solid gray'
                                                     borderRadius='50%'
-                                                    width={25}
-                                                    height={25}
+                                                    width={20}
+                                                    height={20}
                                                 ></Typography>
                                         }
                                     </Button>
                                     <Link href={`/todos/edit/${todo._id}`}>
                                         <a>
                                             <Button sx={{ minWidth: "unset" }}>
-                                                <BorderColorIcon color='primary' cursor="pointer" />
+                                                <ModeIcon
+                                                    color='customBlue'
+                                                    cursor="pointer"
+                                                />
                                             </Button>
                                         </a>
                                     </Link>
@@ -51,16 +73,10 @@ const TodosList = ({ todos, deleteHandler, completeHandler }) => {
                                         sx={{ minWidth: "unset" }}
                                         onClick={() => deleteHandler(todo._id)}
                                     >
-                                        <DeleteIcon color='error' cursor="pointer" />
+                                        <DeleteIcon color='customRed' cursor="pointer" />
                                     </Button>
                                 </Box>
                             </Grid>
-                            {
-                                index !== todos.length - 1 &&
-                                <Grid item xs={12}>
-                                    <Divider />
-                                </Grid>
-                            }
                         </Fragment>
                     )
                 }

@@ -6,6 +6,7 @@ import TodoForm from '@/components/todos/TodoForm'
 import Todo from '@/server/models/todo'
 import dbConnect from '@/server/utils/dbConnect'
 import Layout from '@/containers/layout'
+import { Grid } from '@mui/material'
 
 export default function Home({ data }) {
 
@@ -32,14 +33,21 @@ export default function Home({ data }) {
   }
 
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="lg" >
       <Layout>
-        <TodoForm addTodoHandler={addTodoHandler} />
-        <TodosList
-          todos={todos}
-          deleteHandler={deleteHandler}
-          completeHandler={completeHandler}
-        />
+        <Grid container mt={15} spacing={6}>
+          <Grid item xs={12} md={4.5}>
+            <TodoForm addTodoHandler={addTodoHandler} />
+          </Grid>
+
+          <Grid item xs={12} md={7.5}>
+            <TodosList
+              todos={todos}
+              deleteHandler={deleteHandler}
+              completeHandler={completeHandler}
+            />
+          </Grid>
+        </Grid>
       </Layout>
     </Container>
   )

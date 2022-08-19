@@ -22,7 +22,6 @@ export default async function handler(req, res) {
         todo.isCompleted = isCompleted;
         await todo.save();
         const todos = await Todo.find({});
-        console.log(todos);
         return res.status(200).json({ message: "Todo Edited Successfully", todos });
     }
 }
