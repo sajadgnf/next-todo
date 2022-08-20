@@ -1,4 +1,5 @@
 import { createTheme } from "@mui/material";
+import { red } from "@mui/material/colors";
 
 const theme = createTheme({
     breakpoints: {
@@ -12,13 +13,23 @@ const theme = createTheme({
     },
     palette: {
         primary: {
-            light:"rgb(59 130 246 / 0.5)",
+            light: "rgb(59 130 246 / 0.5)",
             main: "rgb(59 130 246 )",
             dark: "rgb(23 106 243 )",
-            contrastText:"#fff"
+            contrastText: "#fff"
         },
-        customBlue: { main: '#60a5fa' },
-        customRed: { main: '#f87171;' }
+        secondary: {
+            main: '#19857b',
+        },
+        error: {
+            main: red.A400,
+        },
+        customBlue: {
+            main: '#60a5fa'
+        },
+        customRed: {
+            main: '#f87171;'
+        }
     }
 })
 

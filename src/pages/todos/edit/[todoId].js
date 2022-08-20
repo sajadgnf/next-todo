@@ -29,81 +29,79 @@ const EditTodo = ({ todo }) => {
             .catch(err => console.log(err))
     };
     return (
-        <Container maxWidth="lg">
-            <Layout>
-                <Box mt={20} display="flex" alignItems="center" flexDirection='column'>
-                    <Typography variant='h5' color='primary' mb={2}>Edit Todo</Typography>
-                    {
-                        <form onSubmit={editTodoHandler} style={{ textAlign: 'center' }}>
-                            <TextField
-                                label="title"
-                                name='title'
-                                fullWidth
-                                value={formData.title}
-                                sx={{ "& div": { borderRadius: 3 } }}
-                                onChange={evt => formHandler(evt)}
-                            />
-                            <TextField
-                                label="description"
-                                name='description'
-                                fullWidth
-                                multiline
-                                minRows={2}
-                                sx={{ mt: 3, "& div": { borderRadius: 3 } }}
-                                value={formData.description}
-                                onChange={evt => formHandler(evt)}
-                            />
-                            <FormControlLabel
-                                label="Completed Todo"
-                                sx={{
-                                    display: "flex",
-                                    alignItems: 'center',
-                                    flexDirection: 'row-reverse',
-                                    justifyContent: 'flex-end',
-                                    mb: 2,
-                                    mt: 1,
-                                    ml: .2
-                                }}
-                                control={
-                                    <Checkbox
-                                        name='isCompleted'
-                                        checked={formData.isCompleted}
-                                        onChange={evt => formHandler(evt)}
-                                        value={formData.isCompleted}
-                                        color="primary"
-                                    />
-                                }
-                            />
-                            <Button
-                                sx={{
-                                    width: "48%",
-                                    mt: 1,
-                                    mr: 1,
-                                    borderRadius: 2,
-                                    border: "1px solid"
-                                }}
-                                variant="outlined"
-                                onClick={() => router.push("/")}
-                            >
-                                Back
-                            </Button>
-                            <Button
-                                sx={{
-                                    width: "48%",
-                                    mt: 1,
-                                    borderRadius: 2
-                                }}
-                                variant='contained'
-                                type='submit'
-                                disabled={!formData.title || !formData.description}
-                            >
-                                Update
-                            </Button>
-                        </form>
-                    }
-                </Box>
-            </Layout>
-        </Container>
+        <Layout>
+            <Box mt={20} display="flex" alignItems="center" flexDirection='column'>
+                <Typography variant='h5' color='primary' mb={2}>Edit Todo</Typography>
+                {
+                    <form onSubmit={editTodoHandler} style={{ textAlign: 'center' }}>
+                        <TextField
+                            label="title"
+                            name='title'
+                            fullWidth
+                            value={formData.title}
+                            sx={{ "& div": { borderRadius: 3 } }}
+                            onChange={evt => formHandler(evt)}
+                        />
+                        <TextField
+                            label="description"
+                            name='description'
+                            fullWidth
+                            multiline
+                            minRows={2}
+                            sx={{ mt: 3, "& div": { borderRadius: 3 } }}
+                            value={formData.description}
+                            onChange={evt => formHandler(evt)}
+                        />
+                        <FormControlLabel
+                            label="Completed Todo"
+                            sx={{
+                                display: "flex",
+                                alignItems: 'center',
+                                flexDirection: 'row-reverse',
+                                justifyContent: 'flex-end',
+                                mb: 2,
+                                mt: 1,
+                                ml: .2
+                            }}
+                            control={
+                                <Checkbox
+                                    name='isCompleted'
+                                    checked={formData.isCompleted}
+                                    onChange={evt => formHandler(evt)}
+                                    value={formData.isCompleted}
+                                    color="primary"
+                                />
+                            }
+                        />
+                        <Button
+                            sx={{
+                                width: "48%",
+                                mt: 1,
+                                mr: 1,
+                                borderRadius: 2,
+                                border: "1px solid"
+                            }}
+                            variant="outlined"
+                            onClick={() => router.push("/")}
+                        >
+                            Back
+                        </Button>
+                        <Button
+                            sx={{
+                                width: "48%",
+                                mt: 1,
+                                borderRadius: 2
+                            }}
+                            variant='contained'
+                            type='submit'
+                            disabled={!formData.title || !formData.description}
+                        >
+                            Update
+                        </Button>
+                    </form>
+                }
+            </Box>
+        </Layout>
     );
 };
 

@@ -1,14 +1,22 @@
 import '../../styles/globals.css'
 import { SessionProvider } from 'next-auth/react'
 import { ThemeProvider } from '@emotion/react'
+import { CacheProvider } from '@emotion/react';
+import CssBaseline from '@mui/material/CssBaseline';
 import theme from 'src/mui/theme'
+import createEmotionCache from 'src/createEmotionCache';
 
-function MyApp({ Component, pageProps: { session, ...pageProps } }) {
+const clientSideEmotionCache = createEmotionCache();
+
+function MyApp({ Component, emotionCache = clientSideEmotionCache, pageProps: { session, ...pageProps } }) {
   return (
     <SessionProvider session={session}>
-      <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <CacheProvider value={emotionCache}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </CacheProvider>
     </SessionProvider>
   )
 }

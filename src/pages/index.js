@@ -31,7 +31,6 @@ export default function Home({ data }) {
   }
 
   return (
-    <Container maxWidth="lg" >
       <Layout>
         <Grid container mt={15} spacing={6}>
           <Grid item xs={12} md={4.5}>
@@ -47,7 +46,6 @@ export default function Home({ data }) {
           </Grid>
         </Grid>
       </Layout>
-    </Container>
   )
 }
 

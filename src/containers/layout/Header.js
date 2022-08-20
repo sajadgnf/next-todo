@@ -52,6 +52,12 @@ const Header = () => {
                         </Link>
                     </li>
                     <li>
+                        <Link href={'/protected-ssr'}>
+                            <Typography ml={3} component='a'>protected-ssr</Typography>
+
+                        </Link>
+                    </li>
+                    <li>
                         {
                             status !== "loading" && !session &&
                             <Button className={classes.authBtn} onClick={() => signIn('github')}>Sign in</Button>
