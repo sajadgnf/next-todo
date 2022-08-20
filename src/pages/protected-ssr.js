@@ -11,7 +11,7 @@ const ProtectedSSR = () => {
     return (
         <Layout>
             <Typography mt={20}>
-                protectedSSR
+                {session.user.name}, wellcom to protectedSSR
             </Typography>
         </Layout>
     );
@@ -21,6 +21,17 @@ export default ProtectedSSR;
 
 export async function getServerSideProps(ctx) {
     const session = await getSession(ctx)
+
+    if (!session) {
+        return {
+            redirect: {
+                destination: "/api/auth/signin?callbackUrl=http://localhost:3000/protected-ssr",
+                permanent: false
+
+            }
+        }
+    }
+
     return {
         props: {
             session,

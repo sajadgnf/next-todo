@@ -1,18 +1,26 @@
 import Layout from '@/containers/layout';
-import { Container } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 import { Box } from '@mui/system';
+import { signIn, useSession } from 'next-auth/react';
 import React from 'react';
 
 const Profile = () => {
-    return (
-        <Container maxWidth="lg">
-            <Layout>
-                <Box mt={20}>
 
-                profile page
-                </Box>
-            </Layout>
-        </Container>
+    const { data: session, status } = useSession({
+        required: true,
+        onUnauthenticated() {
+            signIn()
+        }
+    })
+
+    if (status === 'loading') return <div>Loading...</div>
+
+    return (
+        <Layout>
+            <Box mt={20}>
+                <Typography>{session.user.name}, wellcome to the profile</Typography>
+            </Box>
+        </Layout>
     );
 };
 

@@ -29,7 +29,6 @@ const EditTodo = ({ todo }) => {
             .catch(err => console.log(err))
     };
     return (
-        <Container maxWidth="lg">
             <Layout>
                 <Box mt={20} display="flex" alignItems="center" flexDirection='column'>
                     <Typography variant='h5' color='primary' mb={2}>Edit Todo</Typography>
@@ -103,7 +102,6 @@ const EditTodo = ({ todo }) => {
                     }
                 </Box>
             </Layout>
-        </Container>
     );
 };
 
