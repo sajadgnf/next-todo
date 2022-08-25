@@ -6,7 +6,6 @@ import React from 'react';
 const ProtectedSSR = () => {
 
     const { data: session, status } = useSession()
-    console.log(session);
 
     return (
         <Layout>
